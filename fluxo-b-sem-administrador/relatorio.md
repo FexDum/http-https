@@ -223,7 +223,7 @@
 
 ---
 
-## Atividade 8 — Manipulação com breakpoint
+## Atividade 8 — Manipulação simples com breakpoint *(Opcional)*
 
 > Se sua ferramenta não suporta breakpoint interativo, informe isso e responda conceitualmente.
 
@@ -269,7 +269,7 @@
 
 - [ ] Campos `[...]` substituídos
 - [ ] Capturas inseridas
-- [ ] Atividades 1 a 8 preenchidas
+- [ ] Atividades 1 a 7 preenchidas; Atividade 8 preenchida se executada
 - [ ] Encerramento preenchido
 - [ ] PDF gerado como `SOBRENOME_NOME_RA_LAB_HTTP_FLUXOB.pdf`
 - [ ] PDF submetido no Microsoft Teams

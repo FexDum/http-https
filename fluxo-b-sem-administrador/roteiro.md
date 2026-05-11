@@ -170,7 +170,7 @@ Acesse e registre as sessões:
 
 ---
 
-### Atividade 8 — Manipulação simples com breakpoint ⏱ ~8 min
+### Atividade 8 — Manipulação simples com breakpoint ⏱ ~8 min *(Opcional)*
 
 > Esta atividade depende do Fiddler Classic. Se você estiver usando HTTP Toolkit ou outra ferramenta sem breakpoint interativo, responda à pergunta de forma conceitual e informe a ferramenta utilizada.
 

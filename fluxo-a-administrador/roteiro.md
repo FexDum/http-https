@@ -180,7 +180,9 @@ Acesse e registre as sessões:
 
 ---
 
-### Atividade 8 — Manipulação simples com breakpoint ⏱ ~10 min
+### Atividade 8 — Manipulação simples com breakpoint ⏱ ~10 min *(Opcional)*
+
+> Esta atividade requer o Fiddler Classic instalado com permissões de administrador. Se o ambiente não permitir, registre a resposta de forma conceitual.
 
 1. Clique na janela do Fiddler para garantir foco.
 2. Ative **Rules → Automatic Breakpoints → Before Requests**.

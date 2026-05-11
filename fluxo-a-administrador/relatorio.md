@@ -225,7 +225,7 @@
 
 ---
 
-## Atividade 8 — Manipulação com breakpoint
+## Atividade 8 — Manipulação simples com breakpoint *(Opcional)*
 
 ### Captura
 
@@ -278,7 +278,7 @@
 
 - [ ] Campos `[...]` substituídos
 - [ ] Capturas inseridas
-- [ ] Atividades 1 a 8 preenchidas
+- [ ] Atividades 1 a 7 preenchidas; Atividade 8 preenchida se executada
 - [ ] Encerramento com duas capturas concluído
 - [ ] PDF gerado como `SOBRENOME_NOME_RA_LAB_HTTP_FLUXOA.pdf`
 - [ ] PDF submetido no Microsoft Teams
