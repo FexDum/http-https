@@ -1,23 +1,16 @@
-# Relatório — Laboratório de Inspeção HTTP/HTTPS — Fluxo B (sem privilégio administrativo)
+# Relatório — Laboratório de Inspeção HTTP/HTTPS — Fluxo B (sem administrador)
 
-> **Como usar este template.** Edite este arquivo **diretamente no GitHub** (ícone de lápis no canto superior direito) ou no **GitHub.dev** (basta teclar `.` em qualquer página deste repositório no navegador). Preencha cada campo `[...]` com a sua resposta. Preserve a formatação markdown (tabelas, blocos de código) para facilitar a correção.
+> **Como usar este template.** Preencha cada campo `[...]` com sua resposta e arraste as capturas de tela diretamente para os locais indicados. Preserve a formatação Markdown.
 >
-> **Observação:** toda a análise prática deste relatório é feita sobre tráfego **HTTP em texto claro**, usando `httpbingo.org` na porta 80. A análise de HTTPS é teórica, baseada na fundamentação do [`readme.md`](../readme.md) do repositório.
+> **Escopo:** este fluxo usa HTTP em texto claro para a prática principal e compara HTTPS sem decriptação.
 
 ---
 
-## Como anexar capturas de tela neste relatório
+## Como anexar capturas de tela
 
-Este relatório usa o recurso nativo do GitHub para anexar imagens.
-
-1. Faça a captura de tela com a ferramenta do sistema (Print Screen → Paint → salvar como PNG; ou *Snip & Sketch* no Windows; ou *Captura de Tela* no macOS).
-2. No editor do GitHub (ou GitHub.dev), posicione o cursor no local indicado por `<!-- arraste a captura aqui -->`.
-3. **Arraste o arquivo PNG diretamente** do seu explorador de arquivos para dentro do editor. O GitHub fará o upload automaticamente e inserirá uma linha do tipo `![image](https://github.com/user-attachments/assets/...)` na posição do cursor.
-4. Salve o commit. Pronto — a imagem fica embutida no markdown renderizado.
-
-> ⚠️ **Ctrl+V não funciona** no editor do GitHub para colar imagens da área de transferência. Use sempre **arrastar-e-soltar** do arquivo salvo em disco.
-
-> 💡 **Geração do PDF.** Quando você converter este `.md` para PDF (md2pdf, VS Code, etc.), o gerador baixará as imagens hospedadas pelo GitHub automaticamente — desde que tenha acesso à internet no momento da conversão.
+1. Faça a captura de tela e salve como PNG.
+2. No editor do GitHub ou GitHub.dev, posicione o cursor no local indicado.
+3. Arraste o PNG para o editor. O GitHub inserirá uma linha `![image](...)`.
 
 ---
 
@@ -31,66 +24,61 @@ Este relatório usa o recurso nativo do GitHub para anexar imagens.
 | Turma | [sua turma] |
 | Data | [data da realização] |
 | Fluxo | **B — Aluno sem privilégio de administrador** |
-| SO utilizado | [Windows 11 / Ubuntu 22.04 / macOS ...] |
-| Ferramenta de proxy | [Fiddler Classic pré-instalado / HTTP Toolkit / mitmproxy / ...] |
-| Navegador(es) | [Chrome 124 / Firefox 125 / ...] |
-| HTTPS-First Mode / HTTPS-Only desabilitado? | [sim / não] |
+| SO utilizado | [Windows / macOS / Linux] |
+| Ferramenta de proxy | [Fiddler Classic / HTTP Toolkit / outra] |
+| Navegador(es) | [Chrome / Edge / Firefox / ...] |
+| HTTPS-First/HTTPS-Only desabilitado temporariamente? | [sim / não] |
 
 ---
 
-## Atividade 1 — Primeira captura (`http://example.com`)
+## Atividade 1 — Primeira captura
 
-### Captura — Atividade 1
+### Captura
 
-<!-- arraste a captura aqui (sessão de http://example.com, abas Raw de Request e Response) -->
+<!-- arraste a captura aqui: sessão de http://example.com com Request/Response Raw -->
 
-**Request-line enviada:**
+**Request-line:**
 
-```
-[colar aqui a linha inicial do request, ex: GET / HTTP/1.1]
-```
-
-**Status-line recebida:**
-
-```
-[colar aqui, ex: HTTP/1.1 200 OK]
+```http
+[ex: GET / HTTP/1.1]
 ```
 
-### Pergunta 1.1
+**Status-line:**
 
-> Cite **ao menos 5 cabeçalhos** que o navegador enviou no request e explique brevemente a função de cada um.
+```http
+[ex: HTTP/1.1 200 OK]
+```
 
-**Resposta:**
+**Cabeçalhos do request:**
 
 | Cabeçalho | Função |
 |---|---|
-| [cabeçalho 1] | [...] |
-| [cabeçalho 2] | [...] |
-| [cabeçalho 3] | [...] |
-| [cabeçalho 4] | [...] |
-| [cabeçalho 5] | [...] |
+| [...] | [...] |
+| [...] | [...] |
+| [...] | [...] |
 
-### Pergunta 1.2
+**Resposta:**
 
-> Qual foi o `Content-Length` da resposta? Se ele não apareceu, registre `Transfer-Encoding`, versão do protocolo ou outro indício observado. O corpo retornado é HTML, texto puro, JSON ou binário? Como você descobriu?
-
-**Resposta:** [...]
+| Campo | Valor observado |
+|---|---|
+| `Content-Type` | [...] |
+| `Content-Length` ou `Transfer-Encoding` | [...] |
 
 ---
 
-## Atividade 2 — Anatomia de um GET (`http://httpbingo.org/get?...`)
+## Atividade 2 — Anatomia de um GET
 
-### Captura — Atividade 2
+### Captura
 
-<!-- arraste a captura aqui (Request → Raw e Response → JSON) -->
+<!-- arraste a captura aqui: Request Raw e Response JSON -->
 
 **Request-line completa:**
 
-```
+```http
 [colar aqui]
 ```
 
-**Cabeçalhos-chave capturados:**
+**Cabeçalhos-chave:**
 
 | Cabeçalho | Valor |
 |---|---|
@@ -98,427 +86,190 @@ Este relatório usa o recurso nativo do GitHub para anexar imagens.
 | `User-Agent` | [...] |
 | `Accept` | [...] |
 
-**Campos do JSON de resposta** (lembrando que `httpbingo.org` retorna valores como arrays):
+**Campos do JSON de resposta:**
 
 ```json
 {
-  "args":    [colar valor],
+  "args": [colar valor],
   "headers": [colar valor resumido],
-  "origin":  [colar valor]
+  "origin": [colar valor]
 }
 ```
 
-### Pergunta 2.1
+**Resposta curta:** o que o campo `origin` representa? O `User-Agent` retornado coincide com o enviado?
 
-> O valor do campo `origin` corresponde a qual elemento da rede? Por que normalmente vem como uma lista de IPs separados por vírgula?
-
-**Resposta:** [...]
-
-### Pergunta 2.2
-
-> Compare o `User-Agent` enviado com o que aparece no JSON da resposta. Coincidem?
-
-**Resposta:** [...]
-
-### Pergunta 2.3
-
-> Em `http://httpbingo.org/headers`, liste até três cabeçalhos que o servidor vê mas **não aparecem** no Raw do request. De onde vêm? Se não encontrar três, explique por que o resultado pode variar.
-
-**Resposta:**
-
-| Cabeçalho visto pelo servidor | Origem provável | Observação |
-|---|---|---|
-| [...] | [...] | [...] |
-| [...] | [...] | [...] |
-| [...] | [...] | [...] |
+[resposta]
 
 ---
 
-## Atividade 3 — POST e envio de formulário (`http://httpbingo.org/forms/post` → `/post`)
+## Atividade 3 — POST e envio de formulário
 
-### Captura — Atividade 3
+### Captura
 
-<!-- arraste a captura aqui (Request → Raw do POST) -->
+<!-- arraste a captura aqui: POST para /post em Request Raw -->
 
 **Request-line do POST:**
 
-```
+```http
 [colar aqui]
 ```
-
-**Cabeçalhos do request:**
 
 | Cabeçalho | Valor |
 |---|---|
 | `Content-Type` | [...] |
 | `Content-Length` | [...] |
 
-**Corpo completo do request:**
+**Corpo do request:**
 
-```
-[colar aqui o body enviado]
+```text
+[colar aqui]
 ```
 
-**Trecho do JSON de resposta (campo `form`):**
+**Campo `form` da resposta:**
 
 ```json
-"form": {
-  [colar aqui]
-}
+[colar trecho relevante]
 ```
 
-### Pergunta 3.1
+**Resposta curta:** qual formato codifica o corpo? Qual aba mostra literalmente os bytes enviados: `WebForms` ou `Raw`?
 
-> Qual o formato do corpo? Como esse formato codifica caracteres especiais (espaço, acentos)?
-
-**Resposta:** [...]
-
-### Pergunta 3.2
-
-> Comparando **Request → WebForms** e **Request → Raw**: qual das duas corresponde literalmente aos bytes enviados no socket TCP?
-
-**Resposta:** [...]
-
-### Bônus 3.3 — Composer com JSON (opcional)
-
-> Só preencha se executou o exercício bônus. Envio manual de um `POST` para `http://httpbingo.org/post` com JSON. Que campo do JSON confirma que o servidor interpretou o JSON?
-
-#### Captura — Bônus 3.3
-
-<!-- arraste aqui a captura do Composer ou do terminal, se executou (opcional) -->
-
-**Response JSON (trecho relevante):**
-
-```json
-{
-  [colar aqui]
-}
-```
-
-**Resposta:** [...]
+[resposta]
 
 ---
 
-## Atividade 4 — Catálogo de status codes (`http://httpbingo.org/...`)
+## Atividade 4 — Status codes
 
-### Captura — Atividade 4
+### Captura
 
-<!-- arraste a captura aqui (lista do Fiddler com as 4 sessões principais) -->
+<!-- arraste a captura aqui: lista do Fiddler com as quatro sessões -->
 
-| # | Método | URL | Status-line | `Content-Length` / `Transfer-Encoding` | Body presente? |
-|---|---|---|---|---|---|
-| 1 | GET | `http://httpbingo.org/status/200` | [...] | [...] | [sim/não] |
-| 2 | GET | `http://httpbingo.org/redirect-to?status_code=301&url=/get` | [...] | [...] | [sim/não] |
-| 3 | GET | `http://httpbingo.org/status/404` | [...] | [...] | [sim/não] |
-| 4 | GET | `http://httpbingo.org/status/500` | [...] | [...] | [sim/não] |
-
-### Pergunta 4.1
-
-> Em qual dos status o corpo está ausente/tamanho zero? Isso é obrigatório pela especificação ou depende do servidor?
-
-**Resposta:** [...]
-
-### Pergunta 4.2
-
-> No `301`, qual cabeçalho da resposta informa para onde ir? O que aconteceria se estivesse ausente?
-
-**Resposta:** [...]
-
-### Pergunta 4.3
-
-> Diferença semântica entre `200`, `304` e `404` do ponto de vista do cache do navegador.
-
-**Resposta:** [...]
-
-### Bônus 4.4 — `418`, `503` e `304` (opcional)
-
-> Só preencha se executou os exercícios bônus.
-
-| # extra | Método | URL / Composer | Status-line | Observação |
+| # | Método | URL | Status-line | Tamanho/body |
 |---|---|---|---|---|
-| 5 | GET | `http://httpbingo.org/status/418` | [...] | [...] |
-| 6 | GET | `http://httpbingo.org/status/503` | [...] | [...] |
-| 7 | GET | `/cache` com `If-Modified-Since` via Composer | [...] | [...] |
+| 1 | GET | `http://httpbingo.org/status/200` | [...] | [...] |
+| 2 | GET | `http://httpbingo.org/redirect-to?status_code=301&url=/get` | [...] | [...] |
+| 3 | GET | `http://httpbingo.org/status/404` | [...] | [...] |
+| 4 | GET | `http://httpbingo.org/status/500` | [...] | [...] |
 
-**Comentário (opcional):** [...]
+**Resposta curta:** no `301`, qual cabeçalho informa o destino do redirecionamento?
+
+[resposta]
 
 ---
 
-## Atividade 5 — Identificação de cabeçalhos (`http://httpbingo.org/response-headers?...` + `/gzip`)
+## Atividade 5 — Cabeçalhos essenciais
 
-### Captura — Atividade 5
+### Captura
 
-<!-- arraste a captura aqui (Inspectors → Headers de uma das sessões) -->
+<!-- arraste a captura aqui: Inspectors → Headers -->
 
-Tabela consolidando os cabeçalhos observados nas Atividades 1–5:
-
-| Cabeçalho | Req/Resp | Valor capturado | Função em uma frase |
+| Cabeçalho | Req/Resp | Valor capturado | Função |
 |---|---|---|---|
 | `Host` | [...] | [...] | [...] |
 | `User-Agent` | [...] | [...] | [...] |
 | `Accept` | [...] | [...] | [...] |
-| `Accept-Encoding` | [...] | [...] | [...] |
-| `Cookie` | [...] | [...] | [...] |
-| `Server` | [...] | [...] | [...] |
 | `Content-Type` | [...] | [...] | [...] |
+| `Content-Length` / `Transfer-Encoding` | [...] | [...] | [...] |
 | `Content-Encoding` | [...] | [...] | [...] |
 | `Set-Cookie` | [...] | [...] | [...] |
 | `Cache-Control` | [...] | [...] | [...] |
-| `Strict-Transport-Security` | Não esperado em HTTP — ver Pergunta 5.3 | — | — |
+| `Strict-Transport-Security` | [esperado: não observado em HTTP puro] | [...] | [...] |
 
-### Pergunta 5.1
+**Resposta curta:** qual é o papel de `Content-Encoding`? Por que `Strict-Transport-Security` não é esperado como mecanismo válido em HTTP puro?
 
-> `Content-Encoding: gzip`/`br` apareceu? Compare `Content-Length`, quando presente, com o conteúdo visível. O que explica a diferença?
-
-**Resposta:** [...]
-
-### Pergunta 5.2
-
-> Cliente envia `Accept: application/json` mas o recurso só existe em `text/html`. Qual status code esperar?
-
-**Resposta:** [...]
-
-### Pergunta 5.3
-
-> `Strict-Transport-Security` apareceu nas respostas HTTP? Por que esse cabeçalho está ausente neste fluxo? (Consulte a RFC 6797.) Qual é seu papel contra downgrades para HTTP puro?
-
-**Resposta:** [...]
+[resposta]
 
 ---
 
-## Atividade 6 — HTTP vs HTTPS (análise sem decriptação)
+## Atividade 6 — HTTP vs HTTPS sem decriptação
 
-### Captura — Atividade 6: HTTP puro (`http://httpbingo.org/get`)
+### Captura — HTTP puro
 
-<!-- arraste a captura HTTP aqui -->
+<!-- arraste a captura aqui: http://httpbingo.org/get -->
 
-### Captura — Atividade 6: HTTPS sem decriptação (`https://httpbingo.org/get`)
+### Captura — HTTPS sem decriptação
 
-<!-- arraste a captura HTTPS aqui (apenas CONNECT visível) -->
+<!-- arraste a captura aqui: https://httpbingo.org/get -->
 
-### Pergunta 6.1
-
-> Que método HTTP aparece na sessão do `https://httpbingo.org/get`? O que ele faz e por que existe?
-
-**Resposta:** [...]
-
-### Pergunta 6.2
-
-> Tabela comparativa dos campos visíveis ao Fiddler em cada caso:
-
-| Campo | Visível em HTTP? | Visível em HTTPS (sem decriptação)? |
+| Campo | Visível em HTTP puro? | Visível em HTTPS sem decriptação? |
 |---|---|---|
-| Método | [...] | [...] |
-| URL completa (path + query) | [...] | [...] |
-| Cabeçalhos de request | [...] | [...] |
-| Corpo de request | [...] | [...] |
-| Status code | [...] | [...] |
-| Cabeçalhos de response | [...] | [...] |
-| Corpo de response | [...] | [...] |
-| Host (via SNI, no `CONNECT`) | [...] | [...] |
-| IP e porta de destino | [...] | [...] |
+| Método real da requisição | [...] | [...] |
+| Host | [...] | [...] |
+| Path e query string | [...] | [...] |
+| Cabeçalhos HTTP | [...] | [...] |
+| Status code da resposta | [...] | [...] |
+| Corpo da resposta | [...] | [...] |
 
-### Pergunta 6.3 (teórica)
+**Resposta curta:** por que o HTTPS oculta a mensagem HTTP sem instalar um certificado raiz confiável na máquina?
 
-> O que você **veria** no Fiddler se tivesse privilégio de administrador e pudesse habilitar *Decrypt HTTPS traffic*? Indique telas/abas e justifique por que essa inspeção exige a instalação de um certificado raiz.
-
-**Resposta:** [...]
-
-### Pergunta 6.4
-
-> Por que a técnica de decriptação dos *debugging proxies* **não** funcionaria contra um usuário se um atacante a tentasse sem instalar o certificado?
-
-**Resposta:** [...]
+[resposta]
 
 ---
 
-## Atividade 7 — Cookies e sessão (`http://httpbingo.org/cookies/...`)
+## Atividade 7 — Cookies e sessão
 
-### Captura — Atividade 7
+### Captura
 
-<!-- arraste a captura aqui (sequência de sessões de cookies/set e cookies) -->
+<!-- arraste a captura aqui: sequência cookies/set e cookies -->
 
 | # | URL | `Set-Cookie` recebido | `Cookie` enviado |
 |---|---|---|---|
-| 1 | `/cookies/set?...` | [...] | [nenhum / ...] |
-| 2 | `/cookies` (1ª visita) | [...] | [...] |
-| 3 | `/cookies` (reload 1) | [...] | [...] |
-| 4 | `/cookies` (reload 2) | [...] | [...] |
+| 1 | `/cookies/set?...` | [...] | [...] |
+| 2 | `/cookies` | [...] | [...] |
+| 3 | `/cookies` após recarregar | [...] | [...] |
 
-### Pergunta 7.1
+**Resposta curta:** `Set-Cookie` apareceu em toda requisição ou apenas quando o servidor definiu/atualizou cookies? Quais atributos foram observados?
 
-> `Set-Cookie` aparece uma vez ou em toda requisição? Justifique.
-
-**Resposta:** [...]
-
-### Pergunta 7.2
-
-> Que atributos o `Set-Cookie` trouxe? Explique cada um presente. Para atributos não observados, registre `não observado`.
->
-> **Nota:** o httpbingo define cookies mínimos — apenas o atributo `Path=/` estará presente. Para cada atributo ausente, registre **não observado** e explique o comportamento padrão do navegador na sua ausência (ex.: sem `Expires`/`Max-Age` → cookie de sessão; sem `Secure` → pode ser enviado por HTTP; sem `SameSite` → o navegador aplica a política padrão da versão em uso).
-
-**Resposta:**
-
-| Atributo | Valor | Função | Observado? |
-|---|---|---|---|
-| `Path` | `/` | [...] | Sim |
-| `Domain` | — | [...] | não observado |
-| `Expires` | — | [...] | não observado |
-| `Max-Age` | — | [...] | não observado |
-| `Secure` | — | [...] | não observado |
-| `HttpOnly` | — | [...] | não observado |
-| `SameSite` | — | [...] | não observado |
-
-### Pergunta 7.3
-
-> O atributo `Secure` pode aparecer num cookie recebido por HTTP puro? Qual seria o comportamento esperado? Relacione com o fato de que todo o tráfego desta atividade é visível em texto claro.
-
-**Resposta:** [...]
-
-### Pergunta 7.4
-
-> Na aba **Inspectors → Cookies**, o cookie armazenado coincide com o campo `cookies` do JSON?
-
-**Resposta:** [...]
+[resposta]
 
 ---
 
-## Atividade 8 — Manipulação com breakpoints
+## Atividade 8 — Manipulação com breakpoint
 
-> **Atividade exclusiva do Fiddler Classic.** Se você utilizou HTTP Toolkit ou mitmproxy, responda às questões 8.1 e 8.2 de forma teórica (sem capturas de tela), indicando que a ferramenta utilizada não suporta breakpoints interativos.
+> Se sua ferramenta não suporta breakpoint interativo, informe isso e responda conceitualmente.
 
-### Captura — Atividade 8: edição do User-Agent
+### Captura
 
-<!-- arraste aqui a captura do breakpoint com User-Agent editado -->
+<!-- arraste a captura aqui, se executou com Fiddler Classic -->
 
-**JSON de resposta após edição:**
+**JSON de resposta, se executado:**
 
 ```json
 {
-  "user-agent": ["[valor forjado]"]
+  "user-agent": ["[valor observado]"]
 }
 ```
 
-### Pergunta 8.1
+**Resposta curta:** o que este teste mostra sobre o papel ativo de um proxy?
 
-> O servidor pode detectar que o `User-Agent` foi forjado? Discuta.
+[resposta]
 
-**Resposta:** [...]
-
-### Pergunta 8.2
-
-> Após editar a status-line de `200 OK` para `404 Not Found`, o que o navegador exibe? Comente o papel do proxy como MITM.
-
-#### Captura — Atividade 8: edição da status-line
-
-<!-- arraste aqui a captura do breakpoint com status-line editada -->
-
-**Resposta:** [...]
-
-### Pergunta 8.3
-
-> Confirme que todos os breakpoints foram desabilitados.
-
-- [ ] Breakpoints desabilitados ao final (Shift+F11)
+- [ ] Breakpoints desabilitados ao final, se aplicável
 
 ---
 
-## Atividade 9 — Redirecionamento HTTP → HTTPS
+## Reflexão final (opcional)
 
-### Captura — Atividade 9
-
-<!-- arraste aqui a captura da sessão original com 301 Moved Permanently -->
-
-**Status-line da resposta a `http://httpbingo.org/redirect-to?status_code=301&url=https%3A%2F%2Fhttpbingo.org%2Fget`:**
-
-```
-[colar aqui, ex: HTTP/1.1 301 Moved Permanently]
-```
-
-**Cabeçalho `Location` da resposta:**
-
-```
-Location: [colar aqui]
-```
-
-### Pergunta 9.1
-
-> Código de status e cabeçalho que direcionaram o navegador para `https://`.
-
-**Resposta:** [...]
-
-### Pergunta 9.2
-
-> Além do redirecionamento 3xx, qual outro mecanismo/cabeçalho faz o navegador passar a forçar HTTPS em visitas futuras? Cite a RFC.
-
-**Resposta:** [...]
-
-### Pergunta 9.3
-
-> Se esse cabeçalho fosse enviado por uma resposta servida via HTTP puro, o navegador deveria obedecer? Justifique com base na RFC.
-
-**Resposta:** [...]
+[até 10 linhas]
 
 ---
 
-## Questões de Verificação
+## Encerramento — Justificativa de segurança
 
-### 1. Por que `Host` é obrigatório em HTTP/1.1 mas era opcional em HTTP/1.0?
+**Por que este fluxo não exige remoção de certificado raiz? Por que isso seria obrigatório no Fluxo A?**
 
-[resposta]
+[resposta curta]
 
-### 2. Diferença entre `401 Unauthorized` e `403 Forbidden`. Dê um exemplo prático de quando cada um deveria aparecer.
-
-[resposta]
-
-### 3. Um `POST` enviado duas vezes produz o mesmo efeito? E um `PUT`? Justifique em termos de idempotência.
-
-[resposta]
-
-### 4. Mesmo com HTTPS, um observador na rede pode descobrir qual site está sendo visitado. Por quê? (Cite SNI e DNS.)
-
-[resposta]
-
-### 5. Impacto prático de `Cache-Control: no-store`. Em que tipo de recurso ele seria essencial?
-
-[resposta]
-
-### 6. (Exclusiva do Fluxo B) Cite três cabeçalhos de segurança que não fazem sentido em respostas HTTP puro. Para cada um, descreva o que aconteceria se enviado por um servidor HTTP. (Cite RFC 6797 para HSTS.)
-
-| Cabeçalho | Comportamento esperado sobre HTTP | Referência |
-|---|---|---|
-| [...] | [...] | [...] |
-| [...] | [...] | [...] |
-| [...] | [...] | [...] |
-
----
-
-## Reflexão final (opcional, até 10 linhas)
-
-> O que você aprendeu que não conhecia antes deste laboratório? Há algum cabeçalho, código de status ou comportamento que passou a olhar com mais atenção? Alguma dificuldade que recomendaria evitar para a próxima turma?
-
-[reflexão]
-
----
-
-## Encerramento — justificativa de segurança (Fluxo B)
-
-**Parágrafo: por que a remoção de certificado é dispensável neste fluxo e por que seria obrigatória para o aluno administrador** (até 5 linhas, com base na seção 4.6 do [`readme.md`](../readme.md)):
-
-[redigir aqui]
-
-- [ ] HTTPS-First Mode / HTTPS-Only Mode reabilitado no navegador
-- [ ] Fiddler / HTTP Toolkit / mitmproxy fechado (porta de proxy liberada)
-- [ ] Configuração de proxy removida do navegador (se aplicável)
+- [ ] HTTPS-First/HTTPS-Only reabilitado no navegador
+- [ ] Ferramenta de proxy fechada
+- [ ] Configuração manual de proxy removida, se aplicável
 
 ---
 
 ## Checklist de entrega
 
-- [ ] Todos os campos `[...]` substituídos
-- [ ] Todas as capturas inseridas via arrastar-e-soltar no editor do GitHub
-- [ ] 6 questões de verificação respondidas (incluindo a exclusiva do Fluxo B)
-- [ ] Atividade 9 (redirecionamento HTTP→HTTPS) documentada
-- [ ] Justificativa de encerramento redigida
-- [ ] Arquivo `relatorio.md` convertido em **`SOBRENOME_NOME_RA_LAB_HTTP_FLUXOB.pdf`** com imagens embutidas
-- [ ] Submetido no Microsoft Teams dentro do prazo
+- [ ] Campos `[...]` substituídos
+- [ ] Capturas inseridas
+- [ ] Atividades 1 a 8 preenchidas
+- [ ] Encerramento preenchido
+- [ ] PDF gerado como `SOBRENOME_NOME_RA_LAB_HTTP_FLUXOB.pdf`
+- [ ] PDF submetido no Microsoft Teams

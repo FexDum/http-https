@@ -32,7 +32,7 @@ Ao final desta atividade, o aluno será capaz de:
 
 1. **Descrever** a estrutura de uma mensagem HTTP (linha inicial, cabeçalhos, corpo) em nível de bytes.
 2. **Identificar** os métodos, os códigos de status e os principais cabeçalhos de requests/responses reais.
-3. **Utilizar** um *debugging proxy* (Fiddler Classic) para capturar, inspecionar e manipular tráfego HTTP.
+3. **Utilizar** um *debugging proxy* (Fiddler Classic como ferramenta de referência) para capturar, inspecionar e, quando aplicável, manipular tráfego HTTP.
 4. **Diferenciar** o comportamento de HTTP e HTTPS na camada de transporte.
 5. **Analisar** fluxos completos como navegação web, submissão de formulário e manutenção de sessão via cookies.
 
@@ -48,12 +48,12 @@ Ao final desta atividade, o aluno será capaz de:
 
 ### Ambiente técnico
 
-- Sistema operacional: Windows 10/11 nas máquinas do laboratório (Fiddler Classic é o proxy padrão).
+- Sistema operacional: Windows 10/11 nas máquinas do laboratório. Em máquina pessoal, use Windows 10/11 se for executar o Fluxo A com Fiddler Classic; no Fluxo B, ferramentas equivalentes podem ser usadas quando indicadas no roteiro.
 - Navegador Chrome, Firefox ou Edge atualizado.
 - Acesso à internet sem bloqueios a sites de teste (`httpbingo.org`, `example.com`, `neverssl.com`).
-- O Fiddler Classic deve estar instalado.
+- *Debugging proxy*: no laboratório, siga a orientação do professor e use a instalação disponibilizada. Em máquina pessoal, instale o Fiddler Classic a partir do site oficial da Telerik ou pelo `winget`, conforme o roteiro do fluxo escolhido.
 
-> 💡 **Nota sobre o Fiddler Classic.** A Telerik (mantenedora atual) declara que o Fiddler Classic está "sem desenvolvimento ativo", recomendando o Fiddler Everywhere (pago) para uso profissional. Para o propósito didático deste laboratório o Fiddler Classic continua plenamente adequado, e a versão gratuita pode ser obtida via Telerik (com cadastro de email) ou pelo gerenciador de pacotes do Windows com `winget install Telerik.Fiddler.Classic` (sem cadastro).
+> 💡 **Nota sobre o Fiddler Classic.** A Telerik (mantenedora atual) declara que o Fiddler Classic está "sem desenvolvimento ativo", recomendando o Fiddler Everywhere (pago) para uso profissional. Para o propósito didático deste laboratório o Fiddler Classic continua adequado. Nas máquinas do laboratório, use a instalação indicada pelo professor; em máquina pessoal, obtenha a versão gratuita pelo site da Telerik (com cadastro de email) ou pelo gerenciador de pacotes do Windows com `winget install Telerik.Fiddler.Classic`.
 
 ### Material
 
@@ -64,7 +64,7 @@ Ao final desta atividade, o aluno será capaz de:
 
 ## 3. Escolha do Roteiro Prático
 
-A inspeção de tráfego **HTTPS** pelo Fiddler exige a instalação de um **certificado raiz** no armazenamento de confiança do sistema operacional. Essa operação **requer privilégios de administrador**. Para acomodar laboratórios mistos, há dois roteiros independentes e auto-contidos:
+A inspeção de tráfego **HTTPS** pelo Fiddler exige a instalação de um **certificado raiz** no armazenamento de confiança do sistema operacional. Essa operação **requer privilégios de administrador**. Para acomodar laboratórios mistos, há dois roteiros práticos independentes; ambos usam esta fundamentação teórica como referência comum:
 
 | Fluxo | Quem usa | Escopo | Pasta |
 |---|---|---|---|
@@ -76,7 +76,7 @@ A inspeção de tráfego **HTTPS** pelo Fiddler exige a instalação de um **cer
 > - O Windows aceita sem pedir senha de outra conta → siga o **[Fluxo A](./fluxo-a-administrador/roteiro.md)**.
 > - O Windows pede credenciais de administrador que você não possui → siga o **[Fluxo B](./fluxo-b-sem-administrador/roteiro.md)**.
 
-> 📝 **Nota sobre avaliação.** Os dois fluxos têm **peso equivalente** na nota final. O Fluxo B inclui questões teóricas adicionais que compensam a ausência da inspeção prática de HTTPS. Cada aluno deve escolher **um único fluxo** no início da aula e segui-lo até o final — não há necessidade de consultar o outro roteiro.
+> 📝 **Nota sobre avaliação.** Os dois fluxos têm **peso equivalente** na nota final. O Fluxo B substitui a inspeção prática de HTTPS por comparação observacional e análise teórica curta. Cada aluno deve escolher **um único fluxo** no início da aula e segui-lo até o final.
 
 ---
 
@@ -89,7 +89,7 @@ O **HyperText Transfer Protocol** (HTTP) é um protocolo de camada de aplicaçã
 | Versão | Transporte | Porta padrão | Característica-chave |
 |---|---|---|---|
 | HTTP/1.0 | TCP | 80 | Uma conexão por request |
-| HTTP/1.1 | TCP | 80 (HTTPS 443) | *Keep-alive*, *pipelining*, chunked encoding |
+| HTTP/1.1 | TCP | 80 | *Keep-alive*, *pipelining*, chunked encoding |
 | HTTP/2 | TCP + TLS (ALPN `h2`) | 443 | Binário, multiplexação, *header compression* (HPACK) |
 | HTTP/3 | QUIC (UDP + TLS 1.3) | 443 | Sem *head-of-line blocking*, estabelecimento mais rápido |
 
@@ -202,7 +202,7 @@ Agrupados por classe (primeiro dígito):
 
 ### 4.6. O papel do *debugging proxy*
 
-Um *debugging proxy* (como Fiddler, mitmproxy, Burp, HTTP Toolkit) é um **man-in-the-middle controlado** que o próprio usuário instala:
+Um *debugging proxy* (como Fiddler, mitmproxy, Burp, HTTP Toolkit) é um **man-in-the-middle controlado** usado conscientemente pelo próprio usuário:
 
 ```
 [Navegador]  ──►  [Proxy local na porta 8888]  ──►  [Internet]  ──►  [Servidor]
