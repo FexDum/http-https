@@ -194,7 +194,6 @@ Acesse e registre as sessões:
 
 Um único PDF chamado **`SOBRENOME_NOME_RA_LAB_HTTP_FLUXOB.pdf`**, gerado a partir do `relatorio.md` preenchido.
 
-> 💡 As capturas devem ser arrastadas diretamente para o editor do GitHub/GitHub.dev. Não crie pasta `evidencias/`.
 
 ### Como gerar o PDF
 
@@ -202,7 +201,6 @@ Um único PDF chamado **`SOBRENOME_NOME_RA_LAB_HTTP_FLUXOB.pdf`**, gerado a part
 |---|---|---|
 | **Markdown to PDF** | Recomendado, online e sem instalação. | Abrir <https://md2pdf.netlify.app>, colar o conteúdo raw do relatório e converter. |
 | **Markdown PDF** no VS Code | Se o repositório estiver clonado. | Usar o comando *Markdown PDF: Export (pdf)*. |
-| **Dillinger** | Alternativa online. | Importar o Markdown e exportar como PDF. |
 
 ### Critérios de avaliação
 
