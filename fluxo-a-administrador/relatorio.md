@@ -146,10 +146,10 @@
 
 | # | Método | URL | Status-line | Tamanho/body |
 |---|---|---|---|---|
-| 1 | GET | `https://httpbingo.org/status/200` | [...] | [...] |
-| 2 | GET | `https://httpbingo.org/redirect-to?status_code=301&url=/get` | [...] | [...] |
-| 3 | GET | `https://httpbingo.org/status/404` | [...] | [...] |
-| 4 | GET | `https://httpbingo.org/status/500` | [...] | [...] |
+| 1 | GET | `https://http.aulasrede.com.br/status/200` | [...] | [...] |
+| 2 | GET | `https://http.aulasrede.com.br/redirect-to?status_code=301&url=/get` | [...] | [...] |
+| 3 | GET | `https://http.aulasrede.com.br/status/404` | [...] | [...] |
+| 4 | GET | `https://http.aulasrede.com.br/status/500` | [...] | [...] |
 
 **Resposta curta:** no `301`, qual cabeçalho informa o destino do redirecionamento?
 
@@ -185,15 +185,15 @@
 
 ### Captura — HTTP puro
 
-<!-- arraste a captura aqui: http://httpbingo.org/get -->
+<!-- arraste a captura aqui: http://http.aulasrede.com.br/get com redirecionamento 301 para HTTPS -->
 
 ### Captura — HTTPS sem decriptação
 
-<!-- arraste a captura aqui: https://httpbingo.org/get sem decriptação -->
+<!-- arraste a captura aqui: https://http.aulasrede.com.br/get sem decriptação -->
 
 ### Captura — HTTPS com decriptação
 
-<!-- arraste a captura aqui: https://httpbingo.org/get com decriptação -->
+<!-- arraste a captura aqui: https://http.aulasrede.com.br/get com decriptação -->
 
 | Situação | O que ficou visível? | O que ficou oculto? |
 |---|---|---|

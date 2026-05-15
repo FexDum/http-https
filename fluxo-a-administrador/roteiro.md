@@ -43,7 +43,7 @@ winget install Telerik.Fiddler.Classic
 
 ### 1.3. Teste do ambiente
 
-Com o Fiddler capturando, acesse `https://httpbingo.org/get`. A sessão deve aparecer decifrada, com JSON legível em **Inspectors → Response → JSON**.
+Com o Fiddler capturando, acesse `https://http.aulasrede.com.br/get`. A sessão deve aparecer decifrada, com JSON legível em **Inspectors → Response → JSON**.
 
 > ⚠️ O certificado raiz do Fiddler permite decriptar conexões HTTPS desta máquina enquanto estiver instalado. A remoção no encerramento é obrigatória.
 
@@ -55,7 +55,7 @@ Antes de iniciar:
 
 1. Fiddler aberto e capturando (**Capturing** no canto inferior esquerdo; F12 alterna).
 2. `Decrypt HTTPS traffic` habilitado.
-3. `https://httpbingo.org/status/200` aparece como sessão HTTPS decifrada.
+3. `https://http.aulasrede.com.br/status/200` aparece como sessão HTTPS decifrada.
 
 Interface principal:
 
@@ -89,7 +89,7 @@ Preencha o [`relatorio.md`](./relatorio.md) desta pasta. Para cada atividade, re
 
 ### Atividade 2 — Anatomia de um GET ⏱ ~10 min
 
-1. Acesse `https://httpbingo.org/get?aluno=SEU_NOME&curso=redes`, substituindo `SEU_NOME`.
+1. Acesse `https://http.aulasrede.com.br/get?aluno=SEU_NOME&curso=redes`, substituindo `SEU_NOME`.
 2. Inspecione **Request → Raw** e **Response → JSON**.
 
 **Registrar:**
@@ -104,7 +104,7 @@ Preencha o [`relatorio.md`](./relatorio.md) desta pasta. Para cada atividade, re
 
 ### Atividade 3 — POST e envio de formulário ⏱ ~12 min
 
-1. Acesse `https://httpbingo.org/forms/post`.
+1. Acesse `https://http.aulasrede.com.br/forms/post`.
 2. Preencha o formulário e envie.
 3. Localize a sessão `POST` para `/post`.
 
@@ -125,10 +125,10 @@ Acesse e registre as sessões:
 
 | # | URL | Classe esperada |
 |---|---|---|
-| 1 | `https://httpbingo.org/status/200` | 2xx |
-| 2 | `https://httpbingo.org/redirect-to?status_code=301&url=/get` | 3xx |
-| 3 | `https://httpbingo.org/status/404` | 4xx |
-| 4 | `https://httpbingo.org/status/500` | 5xx |
+| 1 | `https://http.aulasrede.com.br/status/200` | 2xx |
+| 2 | `https://http.aulasrede.com.br/redirect-to?status_code=301&url=/get` | 3xx |
+| 3 | `https://http.aulasrede.com.br/status/404` | 4xx |
+| 4 | `https://http.aulasrede.com.br/status/500` | 5xx |
 
 **Registrar:** método, URL, *status-line*, tamanho do corpo quando visível e presença/ausência de body.
 
@@ -139,8 +139,8 @@ Acesse e registre as sessões:
 ### Atividade 5 — Cabeçalhos essenciais ⏱ ~10 min
 
 1. Em janela anônima, acesse:
-   `https://httpbingo.org/response-headers?Cache-Control=max-age%3D3600&Set-Cookie=teste%3D1&Strict-Transport-Security=max-age%3D31536000`
-2. Acesse `https://httpbingo.org/gzip`.
+   `https://http.aulasrede.com.br/response-headers?Cache-Control=max-age%3D3600&Set-Cookie=teste%3D1&Strict-Transport-Security=max-age%3D31536000`
+2. Acesse `https://http.aulasrede.com.br/gzip`.
 3. Analise **Inspectors → Headers**.
 
 **Registrar:** uma tabela consolidada com `Host`, `User-Agent`, `Accept`, `Content-Type`, `Content-Length` ou `Transfer-Encoding`, `Content-Encoding`, `Set-Cookie`, `Cache-Control` e `Strict-Transport-Security`.
@@ -152,14 +152,14 @@ Acesse e registre as sessões:
 ### Atividade 6 — HTTP vs HTTPS ⏱ ~15 min
 
 1. Desabilite temporariamente **Decrypt HTTPS traffic**.
-2. Acesse `http://httpbingo.org/get`.
-3. Acesse `https://httpbingo.org/get`.
+2. Acesse `http://http.aulasrede.com.br/get`. O site deve responder com redirecionamento `301` para HTTPS; registre essa sessão HTTP antes da sessão HTTPS seguinte.
+3. Acesse `https://http.aulasrede.com.br/get`.
 4. Compare as duas sessões.
-5. Reabilite **Decrypt HTTPS traffic** e acesse novamente `https://httpbingo.org/get`.
+5. Reabilite **Decrypt HTTPS traffic** e acesse novamente `https://http.aulasrede.com.br/get`.
 
 **Registrar:**
 
-- Captura do HTTP puro.
+- Captura do HTTP puro/redirecionamento para HTTPS.
 - Captura do HTTPS sem decriptação.
 - Captura do HTTPS com decriptação.
 
@@ -169,7 +169,7 @@ Acesse e registre as sessões:
 
 ### Atividade 7 — Cookies e sessão ⏱ ~10 min
 
-1. Em janela anônima, acesse `https://httpbingo.org/cookies/set?disciplina=redes&professor=claudio`.
+1. Em janela anônima, acesse `https://http.aulasrede.com.br/cookies/set?disciplina=redes&professor=claudio`.
 2. Observe o `Set-Cookie` na primeira resposta.
 3. Observe o `Cookie` enviado na requisição seguinte para `/cookies`.
 4. Recarregue a página uma vez.
@@ -186,7 +186,7 @@ Acesse e registre as sessões:
 
 1. Clique na janela do Fiddler para garantir foco.
 2. Ative **Rules → Automatic Breakpoints → Before Requests**.
-3. Acesse `https://httpbingo.org/user-agent`.
+3. Acesse `https://http.aulasrede.com.br/user-agent`.
 4. Na sessão pausada, edite o cabeçalho `User-Agent` para:
    `User-Agent: LaboratorioRedes/1.0 (Aluno NOME)`
 5. Clique em **Run to Completion**.
