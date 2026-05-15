@@ -18,17 +18,17 @@
 
 | Campo | Valor |
 |---|---|
-| Nome | [seu nome completo] |
-| RA | [seu RA] |
+| Nome | [Osvaldo Vasconcellos Neto] |
+| RA | [242284] |
 | Disciplina | Redes de Computadores |
-| Turma | [sua turma] |
-| Data | [data da realização] |
+| Turma | [A] |
+| Data | [15/05/2026] |
 | Fluxo | **A — Aluno com privilégio de administrador** |
-| SO utilizado | [Windows 10 / Windows 11] |
+| SO utilizado | [Windows 10] |
 | Ferramenta de proxy | Fiddler Classic |
-| Navegador(es) | [Chrome / Edge / Firefox / ...] |
-| Decriptação HTTPS habilitada? | [sim / não] |
-| Certificado Fiddler instalado durante a atividade? | [sim / não] |
+| Navegador(es) | [Chrome] |
+| Decriptação HTTPS habilitada? | [sim] |
+| Certificado Fiddler instalado durante a atividade? | [sim] |
 
 ---
 
