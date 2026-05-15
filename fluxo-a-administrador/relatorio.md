@@ -36,7 +36,7 @@
 
 ### Captura
 
-<!-- arraste a captura aqui: sessão de http://example.com com Request/Response Raw -->
+<img width="1920" height="1051" alt="example" src="https://github.com/user-attachments/assets/682e38f3-6230-465b-baaa-80e098bfb8b4" />
 
 **Request-line:**
 
