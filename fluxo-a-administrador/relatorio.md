@@ -18,17 +18,17 @@
 
 | Campo | Valor |
 |---|---|
-| Nome | [Osvaldo Vasoncellos Neto] |
-| RA | [242284] |
+| Nome | Osvaldo Vasoncellos Neto |
+| RA | 242284 |
 | Disciplina | Redes de Computadores |
-| Turma | [A] |
-| Data | [15/05/2026] |
+| Turma | A |
+| Data | 15/05/2026 |
 | Fluxo | **A — Aluno com privilégio de administrador** |
-| SO utilizado | [Windows 10] |
+| SO utilizado | Windows 10 |
 | Ferramenta de proxy | Fiddler Classic |
-| Navegador(es) | [Chrome] |
-| Decriptação HTTPS habilitada? | [sim] |
-| Certificado Fiddler instalado durante a atividade? | [sim] |
+| Navegador(es) | Chrome |
+| Decriptação HTTPS habilitada? | sim |
+| Certificado Fiddler instalado durante a atividade? | sim |
 
 ---
 
