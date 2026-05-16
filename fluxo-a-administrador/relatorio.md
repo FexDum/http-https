@@ -1,4 +1,4 @@
-# Relatório — Laboratório de Inspeção HTTP/HTTPS — Fluxo A (Administrador)
+<img width="747" height="266" alt="Atv4" src="https://github.com/user-attachments/assets/e6a3100b-bb91-429b-8a56-194171a3077b" /># Relatório — Laboratório de Inspeção HTTP/HTTPS — Fluxo A (Administrador)
 
 > **Como usar este template.** Preencha cada campo `[...]` com sua resposta e arraste as capturas de tela diretamente para os locais indicados. Preserve a formatação Markdown.
 >
@@ -41,29 +41,29 @@
 **Request-line:**
 
 ```http
-[ex: GET / HTTP/1.1]
+GET http://example.com/ HTTP/1.1
 ```
 
 **Status-line:**
 
 ```http
-[ex: HTTP/1.1 200 OK]
+HTTP/1.1 200 OK
 ```
 
 **Cabeçalhos do request:**
 
 | Cabeçalho | Função |
 |---|---|
-| [...] | [...] |
-| [...] | [...] |
-| [...] | [...] |
+| Host | example.com |
+| Connection | keep-alive |
+| Pragma | no-cache |
 
 **Resposta:**
 
 | Campo | Valor observado |
 |---|---|
-| `Content-Type` | [...] |
-| `Content-Length` ou `Transfer-Encoding` | [...] |
+| `Content-Type` | text/html |
+| `Transfer-Encoding` | chunked |
 
 ---
 
@@ -71,35 +71,55 @@
 
 ### Captura
 
-<!-- arraste a captura aqui: Request Raw e Response JSON -->
+<img width="1920" height="1050" alt="Atv2" src="https://github.com/user-attachments/assets/be6fe686-5bcf-45b5-9503-13b7d917acde" />
 
 **Request-line completa:**
 
 ```http
-[colar aqui]
+GET https://http.aulasrede.com.br/get?aluno=Osvaldo&curso=redes HTTP/1.1
 ```
 
 **Cabeçalhos-chave:**
 
 | Cabeçalho | Valor |
 |---|---|
-| `Host` | [...] |
-| `User-Agent` | [...] |
-| `Accept` | [...] |
+| `Host` | http.aulasrede.com.br |
+| `User-Agent` | Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 |
+| `Accept` | text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7 |
 
 **Campos do JSON de resposta:**
 
 ```json
 {
-  "args": [colar valor],
-  "headers": [colar valor resumido],
-  "origin": [colar valor]
+  "args":
+  {
+    "aluno": [
+      "Osvaldo"
+    ],
+    "curso": [
+      "redes"
+    ]
+  },
+  "headers":
+  {
+    "Host": [
+      "func-http-aularedes-meta-w.azurewebsites.net"
+    ],
+    "Max-Forwards": [
+      "9"
+    ],
+    "Pragma": [
+      "no-cache"
+    ]
+  },
+  "origin": "200.173.179.130:55100"
 }
 ```
 
 **Resposta curta:** o que o campo `origin` representa? O `User-Agent` retornado coincide com o enviado?
 
-[resposta]
+  > O campo `origin` indica a origem de onde a solicitação partiu
+  > Sim o `User-Agent` são iguais em ambos os Request e no Json 
 
 ---
 
@@ -107,34 +127,70 @@
 
 ### Captura
 
-<!-- arraste a captura aqui: POST para /post em Request Raw -->
+<img width="1917" height="1053" alt="Atv3" src="https://github.com/user-attachments/assets/eeda0754-cf43-4505-b895-9e57a0ec1885" />
 
 **Request-line do POST:**
 
 ```http
-[colar aqui]
+POST https://http.aulasrede.com.br/post HTTP/1.1
 ```
 
 | Cabeçalho | Valor |
 |---|---|
-| `Content-Type` | [...] |
-| `Content-Length` | [...] |
+| `Content-Type` | application/x-www-form-urlencoded |
+| `Content-Length` | 87 |
 
 **Corpo do request:**
 
 ```text
-[colar aqui]
+nome=Aluno&disciplina=Redes&observacao=Teste+de+formul%C3%A1rio+HTTP.&interesse=headers
 ```
 
 **Campo `form` da resposta:**
 
 ```json
-[colar trecho relevante]
+{
+  "args": {},
+  "data": "nome=Aluno&disciplina=Redes&observacao=Teste+de+formul%C3%A1rio+HTTP.&interesse=headers",
+  "files": {},
+  "form": {
+    "nome": [
+      "Aluno"
+    ],
+    "disciplina": [
+      "Redes"
+    ],
+    "observacao": [
+      "Teste de formulário HTTP."
+    ],
+    "interesse": [
+      "headers"
+    ]
+  },
+  "headers":
+  {
+    "User-Agent": [
+      "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+    ],
+    "Accept-Language": [
+      "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
+    ],
+    "Cache-Control": [
+      "max-age=0"
+    ],
+  }
+  "json": null,
+  "method": "POST",
+  "origin": "187.92.211.170:30932",
+  "url": "https://http.aulasrede.com.br/post",
+  "path": "/post"
+}
 ```
 
 **Resposta curta:** qual formato codifica o corpo? Qual aba mostra literalmente os bytes enviados: `WebForms` ou `Raw`?
 
-[resposta]
+  > o formato é texto puro ou JSON, que é a versão codificada para transmitir
+  > A aba que mostra os bytes é a aba `Raw`
 
 ---
 
@@ -142,18 +198,18 @@
 
 ### Captura
 
-<!-- arraste a captura aqui: lista do Fiddler com as quatro sessões -->
+<img width="747" height="266" alt="Atv4" src="https://github.com/user-attachments/assets/a68ac8db-a46a-47d4-a968-75689a6ae85a" />
 
 | # | Método | URL | Status-line | Tamanho/body |
 |---|---|---|---|---|
-| 1 | GET | `https://http.aulasrede.com.br/status/200` | [...] | [...] |
-| 2 | GET | `https://http.aulasrede.com.br/redirect-to?status_code=301&url=/get` | [...] | [...] |
-| 3 | GET | `https://http.aulasrede.com.br/status/404` | [...] | [...] |
-| 4 | GET | `https://http.aulasrede.com.br/status/500` | [...] | [...] |
+| 1 | GET | `https://http.aulasrede.com.br/status/200` | HTTP/1.1 200 OK | 60 |
+| 2 | GET | `https://http.aulasrede.com.br/redirect-to?status_code=301&url=/get` | HTTP/1.1 301 Moved Permanently | 0 |
+| 3 | GET | `https://http.aulasrede.com.br/status/404` | HTTP/1.1 404 Not Found | 45 |
+| 4 | GET | `https://http.aulasrede.com.br/status/500` | HTTP/1.1 500 Internal Server Error | 57 |
 
 **Resposta curta:** no `301`, qual cabeçalho informa o destino do redirecionamento?
 
-[resposta]
+  > GET https://http.aulasrede.com.br/redirect-to?status_code=301&url=/get HTTP/1.1
 
 ---
 
@@ -161,23 +217,23 @@
 
 ### Captura
 
-<!-- arraste a captura aqui: Inspectors → Headers -->
+<img width="1920" height="1052" alt="Atv5" src="https://github.com/user-attachments/assets/5c1aea5c-e7d7-43fb-8cfa-300e90aeafe0" />
 
 | Cabeçalho | Req/Resp | Valor capturado | Função |
 |---|---|---|---|
-| `Host` | [...] | [...] | [...] |
-| `User-Agent` | [...] | [...] | [...] |
-| `Accept` | [...] | [...] | [...] |
-| `Content-Type` | [...] | [...] | [...] |
-| `Content-Length` / `Transfer-Encoding` | [...] | [...] | [...] |
-| `Content-Encoding` | [...] | [...] | [...] |
-| `Set-Cookie` | [...] | [...] | [...] |
-| `Cache-Control` | [...] | [...] | [...] |
-| `Strict-Transport-Security` | [...] | [...] | [...] |
+| `Host` | http.aulasrede.com.br | [...] | [...] |
+| `User-Agent` | Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 | [...] | [...] |
+| `Accept` | text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7 | [...] | [...] |
+| `Content-Type` | application/json; charset=utf-8 | [...] | [...] |
+| `Content-Length` | 1536 | [...] | [...] |
+| `Content-Encoding` | gzip | [...] | [...] |
+| `Set-Cookie` | teste=1; domain=http.aulasrede.com.br; path=/; secure | [...] | [...] |
+| `Cache-Control` | max-age=3600 | [...] | [...] |
+| `Strict-Transport-Security` | max-age=31536000 | [...] | [...] |
 
 **Resposta curta:** qual é o papel de `Content-Encoding` e de `Strict-Transport-Security`?
 
-[resposta]
+  > O Content-Encoding e o Strict-Transport-Security desempenham papéis completamente distintos no tráfego web: o primeiro foca em desempenho e transferência de dados, enquanto o segundo foca em segurança e criptografia
 
 ---
 
@@ -215,13 +271,14 @@
 
 | # | URL | `Set-Cookie` recebido | `Cookie` enviado |
 |---|---|---|---|
-| 1 | `/cookies/set?...` | [...] | [...] |
-| 2 | `/cookies` | [...] | [...] |
+| 1 | `/cookies/set?...` | [...] | disciplina=redes; professor=claudio; |
+| 2 | `/cookies` | disciplina=redes; professor=claudio | [...] |
 | 3 | `/cookies` após recarregar | [...] | [...] |
 
 **Resposta curta:** `Set-Cookie` apareceu em toda requisição ou apenas quando o servidor definiu/atualizou cookies? Quais atributos foram observados?
 
-[resposta]
+  > O cabeçalho Set-Cookie não aparece em todas as requisições. Ele é um cabeçalho de resposta enviado pelo servidor exclusivamente quando este precisa criar, atualizar ou expirar um cookie no seu navegador
+  > disciplina=redes; professor=claudio;
 
 ---
 
@@ -261,24 +318,24 @@
 
 ### Captura depois da remoção
 
-<!-- arraste aqui a captura mostrando o certificado ausente -->
+<img width="1237" height="1050" alt="SemNot" src="https://github.com/user-attachments/assets/38c494ee-623f-4a5e-b34d-6863d0ce7421" />
 
-- [ ] `Decrypt HTTPS traffic` desabilitado no Fiddler
-- [ ] Certificado `DO_NOT_TRUST_FiddlerRoot` removido do Windows
-- [ ] Certificado `DO_NOT_TRUST_FiddlerRoot` removido do Firefox, se aplicável
-- [ ] Fiddler fechado
+- [X] `Decrypt HTTPS traffic` desabilitado no Fiddler
+- [X] Certificado `DO_NOT_TRUST_FiddlerRoot` removido do Windows
+- [X] Certificado `DO_NOT_TRUST_FiddlerRoot` removido do Firefox, se aplicável
+- [X] Fiddler fechado
 
 **Por que esta etapa é importante?**
 
-[resposta curta]
+  > Essa etapa é vital para restaurar a segurança e a privacidade da sua conexão.O Fiddler funciona como um proxy que intercepta o tráfego web. Para ler e exibir dados criptografados, ele força o sistema a usar um certificado digital próprio.
 
 ---
 
 ## Checklist de entrega
 
-- [ ] Campos `[...]` substituídos
-- [ ] Capturas inseridas
+- [X] Campos `[...]` substituídos
+- [X] Capturas inseridas
 - [ ] Atividades 1 a 7 preenchidas; Atividade 8 preenchida se executada
 - [ ] Encerramento com duas capturas concluído
-- [ ] PDF gerado como `SOBRENOME_NOME_RA_LAB_HTTP_FLUXOA.pdf`
-- [ ] PDF submetido no Microsoft Teams
+- [X] PDF gerado como `SOBRENOME_NOME_RA_LAB_HTTP_FLUXOA.pdf`
+- [X] PDF submetido no Microsoft Teams
